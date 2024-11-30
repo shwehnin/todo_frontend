@@ -16,4 +16,4 @@ A simple and interactive Todo application built using React. This app allows use
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/todo-react-app.git
+   git clone https://github.com/shwehnin/todo_frontend
