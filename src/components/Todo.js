@@ -1,32 +1,45 @@
 import React, { useState } from "react";
 
 export default function Todo({ todo, deleteTodo, updateTodo }) {
+  // State to manage edit mode
   let [isEdit, setIsEdit] = useState(false);
+  // State to manage the updated title of the todo
   let [title, setTitle] = useState(todo.title);
 
+  // Handler to update a todo's title and status when the form is submitted
   let updateTodoHandler = (e) => {
-    e.preventDefault();
+    // Prevent the default form submission behavior
+    e.preventDefault(); 
+    // Updated title from state
     let updatedTodo = {
-        id: todo.id,
-        title,
-        status_check : todo.status_check,
-    }
+      id: todo.id,
+      title,
+      status_check: todo.status_check,
+    };
+    // Call the parent updateTodo function
     updateTodo(updatedTodo);
+    // Exit edit mode
     setIsEdit(false);
-  }
+  };
 
+  // Handler to toggle the completion status of the todo
   let handleCheckbox = () => {
     let updatedTodo = {
       id: todo.id,
       title,
-      status_check : !todo.status_check,
-  }
-  updateTodo(updatedTodo);
-  }
+      status_check: !todo.status_check,
+    };
+    // Call the parent updateTodo function
+    updateTodo(updatedTodo);
+  };
   return (
     <li className="todo-item-container">
       <div className="todo-item">
-        <input type="checkbox" checked={todo.status_check == 1} onChange={handleCheckbox} />
+        <input
+          type="checkbox"
+          checked={todo.status_check == 1}
+          onChange={handleCheckbox}
+        />
         {!isEdit && (
           <span
             onDoubleClick={() => setIsEdit(true)}
