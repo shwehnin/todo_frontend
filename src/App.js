@@ -14,7 +14,7 @@ function App() {
 
   // Fetch todos from the server when the component mounts
   useEffect(() => {
-    fetch("http://54.255.121.66/api/v1/todo")
+    fetch("https://todo-backend.hninhninwai.xyz/api/v1/todo")
       .then((res) => res.json())
       .then((todos) => {
         setTodos(todos.data);
@@ -38,7 +38,7 @@ function App() {
   // Function to add a new todo
   let addTodo = (todo) => {
     // Save the new todo to the server
-    fetch("http://54.255.121.66/api/v1/todo", {
+    fetch("https://todo-backend.hninhninwai.xyz/api/v1/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function App() {
   // Function to delete a todo
   let deleteTodo = (todoId) => {
     // Delete the todo from the server
-    fetch(`http://54.255.121.66/api/v1/todo/${todoId}`, {
+    fetch(`https://todo-backend.hninhninwai.xyz/api/v1/todo/${todoId}`, {
       method: "DELETE",
     });
     // Remove the todo locally
@@ -66,7 +66,7 @@ function App() {
   // Function to update a todo
   let updateTodo = (todo) => {
     // Update the todo on the server
-    fetch(`http://54.255.121.66/api/v1/todo/${todo.id}`, {
+    fetch(`https://todo-backend.hninhninwai.xyz/api/v1/todo/${todo.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
